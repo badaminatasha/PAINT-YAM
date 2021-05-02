@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BroccoliAttack : Attack
 {
+    #region VARIABLES
+
     [SerializeField] GameObject broccoliPrefab;
     [SerializeField] int numBroccoliToSpawn;
     [SerializeField] float delayBetweenBroccolis;
@@ -12,6 +14,8 @@ public class BroccoliAttack : Attack
 
     float SpawnYBreadth { get { return spawnPointUppermost.position.y - spawnPointLowermost.position.y; } }
     int numActiveBroccolis = 0;
+
+    #endregion
 
     public override IEnumerator DoAttack()
     {
