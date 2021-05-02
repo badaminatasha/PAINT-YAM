@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chicken : MonoBehaviour
+public class Chicken : EnemyProjectile
 {
     [SerializeField] GameObject shadowPrefab;
     [SerializeField] float startSpeed;
@@ -33,7 +33,6 @@ public class Chicken : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.name);
         Destroy(gameObject);
     }
 }

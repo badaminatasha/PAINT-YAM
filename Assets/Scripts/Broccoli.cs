@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Broccoli : MonoBehaviour
+public class Broccoli : EnemyProjectile
 {
     [SerializeField] float force;
     [SerializeField] float yOffsetMax;

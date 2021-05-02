@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LongNoodle : MonoBehaviour
+public class LongNoodle : EnemyProjectile
 {
     [SerializeField] float minSpeed;
     [SerializeField] float maxSpeed;

@@ -23,7 +23,6 @@ public class AttackSequence : MonoBehaviour
             foreach (Attack attack in attackSequence)
             {
                 animator.SetBool(attack.animatorFlag, true);
-                Debug.Log(attack.animatorFlag);
                 yield return attack.DoAttack();
             }
         }

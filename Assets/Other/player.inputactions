@@ -28,6 +28,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "SpoonParry",
+                    "type": "Button",
+                    "id": "7cb04014-6d60-4bc0-9808-6833210cfdc2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -254,11 +262,22 @@
                 {
                     "name": "",
                     "id": "d9c3958f-196d-46a8-8543-5bb46fa3c6e2",
-                    "path": "<Keyboard>/z",
+                    "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "04f9a833-d3d3-4774-8412-40dfe17ca286",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "SpoonParry",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

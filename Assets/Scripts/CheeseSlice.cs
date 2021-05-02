@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheeseSlice : MonoBehaviour
+public class CheeseSlice : EnemyProjectile
 {
     [SerializeField] float maxReturningSpeed;
     [SerializeField] float startSpeed;
@@ -22,7 +22,7 @@ public class CheeseSlice : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = startSpeed * transform.right;
         rb.angularVelocity = angularSpeed;
-        playerTransform = FindObjectOfType<PlayerMovement>().transform;
+        playerTransform = FindObjectOfType<PlayerController>().transform;
         targetPosition = playerTransform.position;
         startTime = Time.time;
 
