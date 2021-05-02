@@ -4,10 +4,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float moveSpeed;
+    public bool crouching = false;
+
+    [SerializeField] float groundSpeed;
+    [SerializeField] float airSpeed;
     [SerializeField] float jumpSpeed;
 
     Rigidbody2D rb;
+    Animator animator;
     Vector2 input;
     bool touchingGround;
 
@@ -15,23 +19,44 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void FixedUpdate()
     {
         // Strafe
-        rb.velocity = new Vector2(input.x * moveSpeed, rb.velocity.y);
+        // Only strafe if not crouching
+        if (!crouching)
+        {
+            rb.velocity = new Vector2(input.x * (touchingGround ? groundSpeed : airSpeed), rb.velocity.y);
+            animator.SetBool("walk", !Mathf.Approximately(rb.velocity.x, 0f));
+            if (rb.velocity.x < 0f)
+            {
+                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            }
+            else if (rb.velocity.x > 0f) transform.rotation = Quaternion.identity;
+        }
+        else rb.velocity = new Vector2(0f, rb.velocity.y);
 
         // Jump
         if (input.y > 0 && touchingGround)
         {
             rb.velocity += Vector2.up * jumpSpeed;
             touchingGround = false;
+            animator.SetBool("jump", true);
         }
-        else if (input.y < 0)
+        // crouch
+        else if (input.y < 0 && !crouching && touchingGround)
         {
-            // crouch nonsense
+            crouching = true;
+            animator.SetBool("crouch", true);
         }
+    }
+
+    public void StopCrouching()
+    {
+        crouching = false;
+        animator.SetBool("crouch", false);
     }
 
     public void OnMove(InputValue value)
@@ -41,11 +66,16 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        touchingGround = collision.gameObject.CompareTag("ground");
+        if (collision.gameObject.CompareTag("ground") && !touchingGround)
+        {
+            touchingGround = true;
+            animator.SetBool("jump", false);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        touchingGround = collision.gameObject.CompareTag("ground");
+        if (collision.gameObject.CompareTag("ground"))
+            touchingGround = false;
     }
 }
