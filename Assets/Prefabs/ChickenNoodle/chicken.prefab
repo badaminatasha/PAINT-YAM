@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea17b1c5a55220641a1444a27ad2af9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageOnHit: 1
   shadowPrefab: {fileID: 261674859033925545, guid: 616be90203c7cb04cb2f28c4eea788f4,
     type: 3}
   startSpeed: 1

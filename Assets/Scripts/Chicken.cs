@@ -36,8 +36,9 @@ public class Chicken : EnemyProjectile
         Destroy(myShadow.gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
+        base.OnTriggerEnter2D(collision);
         GetComponentInChildren<Animator>().SetBool("impact", true);
         rb.velocity = Vector2.zero;
         Destroy(rb);

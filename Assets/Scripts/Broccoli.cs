@@ -38,8 +38,9 @@ public class Broccoli : EnemyProjectile
         FindObjectOfType<BroccoliAttack>().BroccoliDespawned();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
+        base.OnTriggerEnter2D(collision);
         Destroy(gameObject);
     }
 }

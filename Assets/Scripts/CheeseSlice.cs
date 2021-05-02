@@ -47,8 +47,9 @@ public class CheeseSlice : EnemyProjectile
         //    rb.velocity = (targetPosition-(Vector2)transform.position).normalized * maxReturningSpeed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
+        base.OnTriggerEnter2D(collision);
         Destroy(gameObject);
     }
 }

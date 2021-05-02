@@ -514,6 +514,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: campb
       objectReference: {fileID: 0}
+    - target: {fileID: 5898296333884605695, guid: 16d3dd3725ce14e4dab66c63d0725f61,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6453236707433091089, guid: 16d3dd3725ce14e4dab66c63d0725f61,
         type: 3}
       propertyPath: m_Bounds.m_Center.x

@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3afb58bb803c8e4f8a775ed2fa9758e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageOnHit: 1
   force: 5
   yOffsetMax: 2
   yOffsetMin: -2

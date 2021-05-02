@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c42a3b954249a74895b0792fdb01d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageOnHit: 1
   maxReturningSpeed: 18
   startSpeed: 15
   angularSpeed: 5
