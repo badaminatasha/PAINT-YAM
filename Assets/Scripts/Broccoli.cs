@@ -19,6 +19,9 @@ public class Broccoli : MonoBehaviour
         startY = transform.position.y;
         // go up first
         rb.velocity = new Vector2(rb.velocity.x, verticalSpeed);
+
+        // in case it misses the player, destroy after a few seconds
+        Destroy(gameObject, 3f);
     }
 
     void FixedUpdate()
@@ -30,19 +33,13 @@ public class Broccoli : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, verticalSpeed);
     }
 
-    void Despawn()
+    void OnDestroy()
     {
         FindObjectOfType<BroccoliAttack>().BroccoliDespawned();
-        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Despawn();
-    }
-
-    private void OnBecameInvisible()
-    {
-        Despawn();
+        Destroy(gameObject);
     }
 }

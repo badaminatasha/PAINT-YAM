@@ -5,7 +5,8 @@ using UnityEngine;
 public class CheddarAttack : Attack
 {
     [SerializeField] GameObject cheesePrefab;
-    [SerializeField] int numSlicesToThrow;
+    [SerializeField] int numSlicesToThrowAtOnce;
+    [SerializeField] int numThrows;
 
     // taken from Vector3.right
     [SerializeField] float maxLaunchRotation;
@@ -14,10 +15,13 @@ public class CheddarAttack : Attack
     public override IEnumerator DoAttack()
     {
 
-        for(int i = 0; i < numSlicesToThrow; i++)
+        for(int i = 0; i < numThrows; i++)
         {
             yield return new WaitUntil(() => attackStartAnimationEventTriggered);
-            Instantiate(cheesePrefab, transform.position + Vector3.left, Quaternion.Euler(Vector3.forward * Random.Range(minLaunchRotation, maxLaunchRotation)));
+            for (int j = 0; j < numSlicesToThrowAtOnce; j++)
+            {
+                Instantiate(cheesePrefab, transform.position + Vector3.left, Quaternion.Euler(Vector3.forward * Random.Range(minLaunchRotation, maxLaunchRotation)));
+            }
             attackStartAnimationEventTriggered = false;
         }
 

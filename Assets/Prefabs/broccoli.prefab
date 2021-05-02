@@ -144,6 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 5
-  yOffsetMax: 1
-  yOffsetMin: -1
-  verticalSpeed: 2.5
+  yOffsetMax: 2
+  yOffsetMin: -2
+  verticalSpeed: 10

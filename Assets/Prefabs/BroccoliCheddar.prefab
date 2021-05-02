@@ -874,7 +874,7 @@ GameObject:
   - component: {fileID: 2538981158282888177}
   - component: {fileID: 2837590092926220126}
   m_Layer: 0
-  m_Name: EnemyBase
+  m_Name: BroccoliCheddar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -923,9 +923,10 @@ MonoBehaviour:
   animatorFlag: CheddarAttack
   cheesePrefab: {fileID: 261674859033925545, guid: f19d6aef003e9254da69f9c4e03c89b1,
     type: 3}
-  numSlicesToThrow: 1
-  maxLaunchRotation: 110
-  minLaunchRotation: 150
+  numSlicesToThrowAtOnce: 3
+  numThrows: 3
+  maxLaunchRotation: 130
+  minLaunchRotation: 200
 --- !u!114 &2538981158282888177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -942,7 +943,7 @@ MonoBehaviour:
   broccoliPrefab: {fileID: 261674859033925545, guid: bdb26b51e0cc5e84789378222d97ae6d,
     type: 3}
   numBroccoliToSpawn: 5
-  delayBetweenBroccolis: 0.6
+  delayBetweenBroccolis: 0.5
   spawnPointUppermost: {fileID: 1068168826508756197}
   spawnPointLowermost: {fileID: 2599087620139648904}
 --- !u!95 &2837590092926220126

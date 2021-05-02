@@ -24,7 +24,7 @@ public class BroccoliAttack : Attack
 
         for(int i = 0; i < numBroccoliToSpawn; i++)
         {
-            float yOffsetFromOrigin = spawnPointLowermost.position.y + (i / (float)(numBroccoliToSpawn - 1)) * SpawnYBreadth;
+            float yOffsetFromOrigin = (i / (float)(numBroccoliToSpawn - 1)) * SpawnYBreadth;
             Instantiate(broccoliPrefab, spawnPointLowermost.position + Vector3.up * yOffsetFromOrigin, Quaternion.identity);
             numActiveBroccolis++;
             yield return new WaitForSeconds(delayBetweenBroccolis);

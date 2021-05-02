@@ -25,6 +25,9 @@ public class CheeseSlice : MonoBehaviour
         playerTransform = FindObjectOfType<PlayerMovement>().transform;
         targetPosition = playerTransform.position;
         startTime = Time.time;
+
+        // in case it misses the player, despawn after a few seconds
+        Destroy(gameObject, 4f);
     }
 
     private void Update()
@@ -44,18 +47,8 @@ public class CheeseSlice : MonoBehaviour
         //    rb.velocity = (targetPosition-(Vector2)transform.position).normalized * maxReturningSpeed;
     }
 
-    void Despawn()
-    {
-        Destroy(gameObject);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Despawn();
-    }
-
-    private void OnBecameInvisible()
-    {
-        Despawn();
+        Destroy(gameObject);
     }
 }
