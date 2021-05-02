@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AttackSequence : MonoBehaviour
 {
-    [SerializeField] List<Attack> attackSequence = new List<Attack>();
+    List<Attack> attackSequence = new List<Attack>();
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
+        attackSequence = GetComponents<Attack>().ToList();
+        animator = GetComponent<Animator>();
         StartCoroutine(StartSequence());
     }
 
@@ -18,6 +22,8 @@ public class AttackSequence : MonoBehaviour
         {
             foreach (Attack attack in attackSequence)
             {
+                animator.SetBool(attack.animatorFlag, true);
+                Debug.Log(attack.animatorFlag);
                 yield return attack.DoAttack();
             }
         }

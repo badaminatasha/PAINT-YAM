@@ -4,20 +4,15 @@ using UnityEngine;
 
 public abstract class Attack : MonoBehaviour
 {
-    [SerializeField] protected int indexInSequence;
-    [SerializeField] protected float delayBeforeStart;
+    public string animatorFlag;
+
+    protected bool attackStartAnimationEventTriggered = false;
+    protected Animator animator;
+
+    protected virtual void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     public abstract IEnumerator DoAttack();
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
