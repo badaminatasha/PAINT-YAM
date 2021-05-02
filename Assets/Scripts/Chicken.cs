@@ -25,6 +25,11 @@ public class Chicken : EnemyProjectile
         Destroy(gameObject, 5f);
     }
 
+    public void DestroyChicken()
+    {
+        Destroy(gameObject);
+    }
+
     void OnDestroy()
     {
         FindObjectOfType<ChickenAttack>().ChickenDespawned();
@@ -33,6 +38,8 @@ public class Chicken : EnemyProjectile
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        GetComponentInChildren<Animator>().SetBool("impact", true);
+        rb.velocity = Vector2.zero;
+        Destroy(rb);
     }
 }

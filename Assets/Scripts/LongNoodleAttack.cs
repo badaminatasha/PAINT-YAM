@@ -5,7 +5,8 @@ using UnityEngine;
 public class LongNoodleAttack : Attack
 {
     [SerializeField] GameObject noodlePrefab;
-    [SerializeField] int numNoodlesToSpawn;
+    [SerializeField] int numNoodleClaps;
+    [SerializeField] int numNoodlesToSpawnAtOnce;
     [SerializeField] float delayBetweenNoodles;
     [SerializeField] Transform spawnPointUppermost;
     [SerializeField] Transform spawnPointLowermost;
@@ -19,21 +20,23 @@ public class LongNoodleAttack : Attack
 
     public override IEnumerator DoAttack()
     {
-        yield return new WaitUntil(() => attackStartAnimationEventTriggered);
-
-        // immediately turn off the animator flag for this attack to prevent triggering a second attack
-        animator.SetBool(animatorFlag, false);
-
         numActiveNoodles = 0;
 
-        for(int i = 0; i < numNoodlesToSpawn; i++)
+        for(int i = 0; i < numNoodleClaps; i++)
         {
-            float yOffsetFromOrigin = (i / (float)(numNoodlesToSpawn - 1)) * SpawnYBreadth;
-            Instantiate(noodlePrefab,
-                        spawnPointLowermost.position + Vector3.up * yOffsetFromOrigin,
-                        Quaternion.Euler(0f, 0f, Random.Range(minLaunchRotation, maxLaunchRotation)));
-            numActiveNoodles++;
-            yield return new WaitForSeconds(delayBetweenNoodles);
+            yield return new WaitUntil(() => attackStartAnimationEventTriggered);
+            // immediately turn off the animator flag for this attack to prevent triggering a second attack
+            animator.SetBool(animatorFlag, false);
+
+            attackStartAnimationEventTriggered = false;
+            for (int j = 0; j < numNoodlesToSpawnAtOnce; j++)
+            {
+                float yOffsetFromOrigin = (i / (float)(numNoodleClaps - 1)) * SpawnYBreadth;
+                Instantiate(noodlePrefab,
+                            spawnPointLowermost.position + Vector3.up * yOffsetFromOrigin,
+                            Quaternion.Euler(0f, 0f, Random.Range(minLaunchRotation, maxLaunchRotation)));
+                numActiveNoodles++;
+            }
         }
 
         yield return new WaitUntil(() => numActiveNoodles == 0);

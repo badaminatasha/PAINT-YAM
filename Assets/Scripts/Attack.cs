@@ -11,7 +11,7 @@ public abstract class Attack : MonoBehaviour
 
     protected virtual void Start()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     public abstract IEnumerator DoAttack();
