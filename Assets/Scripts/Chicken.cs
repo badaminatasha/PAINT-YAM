@@ -40,7 +40,8 @@ public class Chicken : EnemyProjectile
     {
         base.OnTriggerEnter2D(collision);
         GetComponentInChildren<Animator>().SetBool("impact", true);
-        rb.velocity = Vector2.zero;
+        if (rb)
+            rb.velocity = Vector2.zero;
         Destroy(rb);
     }
 }

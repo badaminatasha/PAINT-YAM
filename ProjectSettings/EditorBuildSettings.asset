@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: 74534397ad413461b86da383f233617e
+  - enabled: 1
+    path: Assets/Scenes/BroccoliCheddar.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/ChickenNoodle.unity
+    guid: df0fc16f8307a7c448c4a1ff49e60c67
+  - enabled: 1
+    path: Assets/Scenes/LoseScreen.unity
+    guid: 57c82c68b90cf814c8fdfd4a2ce05f43
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: 5ee5383934ccef74d9c2c9e1feeda079
   m_configObjects: {}

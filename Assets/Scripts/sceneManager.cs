@@ -17,6 +17,31 @@ public class sceneManager : MonoBehaviour
         
     }
 
+    public void LoadBroccoliCheddar()
+    {
+        SceneManager.LoadScene("BroccoliCheddar");
+    }
+
+    public void LoadChickenNoodle()
+    {
+        SceneManager.LoadScene("ChickenNoodle");
+    }
+
+    public void LoadWinScreen()
+    {
+        SceneManager.LoadScene("WinScreen");
+    }
+
+    public void LoadLoseScreen()
+    {
+        SceneManager.LoadScene("LoseScreen");
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+
     public void Play()
     {
         SceneManager.LoadScene("Game");
